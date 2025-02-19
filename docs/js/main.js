@@ -1,3 +1,9 @@
+// Define API URL and endpoint as global variables
+const FASTAPI_BASE_URL = "https://fastapi-backend-small-138353761392.europe-west3.run.app";
+const PREDICTION_ENDPOINT = "predict";
+const FASTAPI_PREDICTION_URL = `${FASTAPI_BASE_URL}/${PREDICTION_ENDPOINT}`;
+
+
 // Wait until the entire HTML document (DOM) is fully loaded before executing any script
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM loaded");  // Log a message to the console when the page is ready
@@ -26,7 +32,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Therefore, we must send a JSON object where the key is "text" and the value is the user input.
 
     // Send a POST request to the FastAPI sentiment analysis API
-    let response = await fetch("https://fastapi-backend-small-138353761392.europe-west3.run.app/predict/", {  
+
+
+    // let response = await fetch("https://fastapi-backend-small-138353761392.europe-west3.run.app/predict/", {  
+    let response = await fetch(FASTAPI_PREDICTION_URL, {
         // NOTE: Replace this URL with your actual FastAPI deployment URL if necessary.
 
         method: "POST",  // The API expects a POST request
@@ -36,9 +45,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // This ensures the request body matches the expected structure in FastAPI.
     });
 
-    // Check if the API request was successful
+    // Check if the API request was successful 
     if (!response.ok) {
-      // If the request fails (e.g., network issue, server error), display an error message
+      // If the request fails (e.g., network issue and/or server error), display an error message
       document.getElementById("result").innerText = "Error: Unable to fetch data";
       return;  // Stop execution
     }
