@@ -1,7 +1,7 @@
 // Define API URL and endpoint as global variables
 const FASTAPI_BASE_URL = "https://fastapi-backend-small-138353761392.europe-west3.run.app";
 const PREDICTION_ENDPOINT = "predict";
-const FASTAPI_PREDICTION_URL = `${FASTAPI_BASE_URL}/${PREDICTION_ENDPOINT}`;
+const FASTAPI_PREDICTION_URL = `${FASTAPI_BASE_URL}/${PREDICTION_ENDPOINT}/`;
 
 
 // Wait until the entire HTML document (DOM) is fully loaded before executing any script
